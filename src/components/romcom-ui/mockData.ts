@@ -1,4 +1,4 @@
-import {
+import type {
   CharacterProfile,
   CreationFormState,
   StoryBeat,
@@ -16,7 +16,8 @@ export const templateOptions: TemplateOption[] = [
     id: "hoc-duong-thanh-xuan",
     title: "Học đường thanh xuân",
     subtitle: "Mùa hè cuối cấp",
-    summary: "Tình cảm dở khóc dở cười trong câu lạc bộ truyền thông của trường.",
+    summary:
+      "Tình cảm dở khóc dở cười trong câu lạc bộ truyền thông của trường.",
     quickPrompt:
       "Bối cảnh là trường THPT Hoa Hạ năm cuối. Câu lạc bộ truyền thông phải cứu lễ hội trường trong 7 ngày.",
   },
@@ -24,7 +25,8 @@ export const templateOptions: TemplateOption[] = [
     id: "isekai-romcom",
     title: "Isekai Romcom",
     subtitle: "Triệu hồi nhầm lớp trưởng",
-    summary: "Bạn bị kéo sang thế giới fantasy và phải quản lý quán trà phép thuật.",
+    summary:
+      "Bạn bị kéo sang thế giới fantasy và phải quản lý quán trà phép thuật.",
     quickPrompt:
       "Một thành phố phép thuật nơi mọi lời tỏ tình đều biến thành khế ước ma pháp tạm thời.",
   },
@@ -32,7 +34,8 @@ export const templateOptions: TemplateOption[] = [
     id: "drama-cong-so",
     title: "Drama công sở",
     subtitle: "Startup mùa gọi vốn",
-    summary: "Văn phòng chật chội, deadline dồn dập và những ánh nhìn đầy ẩn ý.",
+    summary:
+      "Văn phòng chật chội, deadline dồn dập và những ánh nhìn đầy ẩn ý.",
     quickPrompt:
       "Startup truyền thông số chuẩn bị gọi vốn Series A, cả team phải làm việc xuyên đêm suốt 1 tuần.",
   },
@@ -53,6 +56,7 @@ export const initialCharacters: CharacterProfile[] = [
     name: "An Nhiên",
     archetype: "Kuudere học bá",
     affection: 52,
+    previewImage: "/images/characters/kuudere.jpeg",
     memories: [
       "Ghét bị gọi là 'đồ lạnh lùng' trước đám đông.",
       "Rất thích cacao nóng, nhưng luôn giả vờ gọi cà phê đen.",
@@ -64,6 +68,7 @@ export const initialCharacters: CharacterProfile[] = [
     name: "Minh Thư",
     archetype: "Bạn thân năng lượng cao",
     affection: 44,
+    previewImage: "/images/characters/tomboy.jpeg",
     memories: [
       "Luôn nhớ ngày sinh nhật của cả lớp.",
       "Sợ thang máy, nên thường chọn đi bộ lên tầng 8.",
@@ -75,6 +80,7 @@ export const initialCharacters: CharacterProfile[] = [
     name: "Khánh Linh",
     archetype: "Tsundere đội trưởng CLB",
     affection: 38,
+    previewImage: "/images/characters/tsundere.jpeg",
     memories: [
       "Không thích ai đến trễ cuộc họp CLB.",
       "Từng bí mật sửa bài thuyết trình của bạn lúc nửa đêm.",

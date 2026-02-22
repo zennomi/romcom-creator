@@ -3,15 +3,18 @@ import {
   Button,
   Card,
   Column,
+  GlitchFx,
   Grid,
   Heading,
   Icon,
+  Media,
   RevealFx,
   Row,
   Text,
   TiltFx,
 } from "@once-ui-system/core";
 import type { TemplateOption } from "./types";
+import titleImage from "../../assets/title.png";
 
 const TEMPLATE_ICONS: Record<string, "academicCap" | "sparkles" | "building"> = {
   "hoc-duong-thanh-xuan": "academicCap",
@@ -58,14 +61,20 @@ export function LandingScreen({
         </Badge>
       </Row>
 
-      <Column gap="12">
-        <Heading variant="display-strong-s">
-          Chuyện tình thanh xuân bi hài của tôi quả nhiên là AI làm
-        </Heading>
-        <Text variant="body-default-m" onBackground="neutral-weak">
-          Chọn mẫu hoặc bắt đầu nhanh để trải nghiệm luồng visual novel tương tác.
-        </Text>
-      </Column>
+      <GlitchFx fillWidth speed="medium">
+        <Column gap="12" fillWidth horizontal="center" marginTop={-5}>
+          <Row fillWidth center>
+            <Media
+              src={titleImage.src}
+              alt="Chuyện tình thanh xuân bi hài của tôi quả nhiên là AI làm"
+              maxWidth={30}
+            />
+          </Row>
+          <Text variant="body-default-m" onBackground="neutral-weak">
+            Chọn mẫu hoặc bắt đầu nhanh để trải nghiệm luồng visual novel tương tác.
+          </Text>
+        </Column>
+      </GlitchFx>
 
       <Row
         fillWidth

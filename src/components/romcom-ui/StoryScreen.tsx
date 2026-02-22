@@ -106,7 +106,7 @@ export function StoryScreen({
         >
           <Background
             fill
-            style={{ pointerEvents: "none" }}
+            style={{ pointerEvents: "none", position: "absolute", top: 0, left: 0 }}
             gradient={{
               display: true,
               opacity: 40,
@@ -153,7 +153,7 @@ export function StoryScreen({
             </Column>
           </RevealFx>
 
-          <RevealFx delay={0.06} speed="fast">
+          <RevealFx delay={0.06} speed="fast" style={{ marginTop: "auto" }}>
             <TiltFx intensity={2}>
               <Column
                 fillWidth

@@ -96,6 +96,13 @@ export function CreationScreen({
   onSubmit,
 }: CreationScreenProps) {
   const isLastStep = currentStep >= steps.length - 1;
+  const primaryGlowTone =
+    currentStep === 0
+      ? "brand-alpha-medium"
+      : currentStep === 1
+        ? "accent-alpha-medium"
+        : "neutral-alpha-medium";
+  const secondaryGlowTone = currentStep === 2 ? "brand-alpha-medium" : "accent-alpha-medium";
 
   return (
     <Column fillWidth gap="24">
@@ -139,6 +146,36 @@ export function CreationScreen({
           transition="micro-medium"
           shadow="s"
         >
+          <Column
+            position="absolute"
+            radius="xl"
+            background={primaryGlowTone}
+            style={{
+              top: "-2rem",
+              right: "-2rem",
+              width: "9rem",
+              height: "9rem",
+              filter: "blur(32px)",
+              opacity: 0.36,
+              pointerEvents: "none",
+              transition: "all 280ms ease",
+            }}
+          />
+          <Column
+            position="absolute"
+            radius="xl"
+            background={secondaryGlowTone}
+            style={{
+              bottom: "-2.5rem",
+              left: "-2rem",
+              width: "8rem",
+              height: "8rem",
+              filter: "blur(28px)",
+              opacity: 0.24,
+              pointerEvents: "none",
+              transition: "all 280ms ease",
+            }}
+          />
           <Column gap="20" style={{ position: "relative", zIndex: 1 }}>
             {/* Step 0: Bối cảnh */}
             {currentStep === 0 && (
@@ -149,24 +186,60 @@ export function CreationScreen({
                   background="brand-alpha-weak"
                   radius="m"
                   padding="16"
+                  position="relative"
+                  overflow="hidden"
+                  transition="micro-medium"
+                  style={{ transform: "translateY(-0.08rem)" }}
                 >
-                  <Row gap="12" vertical="center">
-                    <Column
-                      background="surface"
+                  <Column
+                    position="absolute"
+                    radius="xl"
+                    background="brand-alpha-medium"
+                    style={{
+                      top: "-1.5rem",
+                      right: "-1.5rem",
+                      width: "6rem",
+                      height: "6rem",
+                      filter: "blur(24px)",
+                      opacity: 0.4,
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <Row
+                    fillWidth
+                    horizontal="between"
+                    vertical="center"
+                    gap="12"
+                    style={{ position: "relative", zIndex: 1 }}
+                  >
+                    <Row gap="12" vertical="center">
+                      <Column
+                        background="surface"
+                        border="brand-alpha-medium"
+                        radius="m"
+                        padding="12"
+                      >
+                        <Icon name="globe" size="m" onBackground="brand-strong" />
+                      </Column>
+                      <Column gap="2">
+                        <Text variant="label-strong-s" onBackground="brand-strong">
+                          Bối cảnh
+                        </Text>
+                        <Text variant="label-default-xs" onBackground="neutral-weak">
+                          Thế giới nơi câu chuyện diễn ra
+                        </Text>
+                      </Column>
+                    </Row>
+                    <Badge
+                      icon="sparkles"
                       border="brand-alpha-medium"
-                      radius="m"
-                      padding="12"
+                      background="surface"
+                      onBackground="brand-strong"
+                      paddingX="8"
+                      paddingY="4"
                     >
-                      <Icon name="globe" size="m" onBackground="brand-strong" />
-                    </Column>
-                    <Column gap="2">
-                      <Text variant="label-strong-s" onBackground="brand-strong">
-                        Bối cảnh
-                      </Text>
-                      <Text variant="label-default-xs" onBackground="neutral-weak">
-                        Thế giới nơi câu chuyện diễn ra
-                      </Text>
-                    </Column>
+                      <Text variant="label-default-xs">Khởi tạo</Text>
+                    </Badge>
                   </Row>
                   <Textarea
                     id="world-description"
@@ -205,24 +278,60 @@ export function CreationScreen({
                   background="accent-alpha-weak"
                   radius="m"
                   padding="16"
+                  position="relative"
+                  overflow="hidden"
+                  transition="micro-medium"
+                  style={{ transform: "translateY(-0.08rem)" }}
                 >
-                  <Row gap="12" vertical="center">
-                    <Column
-                      background="surface"
+                  <Column
+                    position="absolute"
+                    radius="xl"
+                    background="accent-alpha-medium"
+                    style={{
+                      top: "-1.5rem",
+                      right: "-1.5rem",
+                      width: "6rem",
+                      height: "6rem",
+                      filter: "blur(24px)",
+                      opacity: 0.36,
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <Row
+                    fillWidth
+                    horizontal="between"
+                    vertical="center"
+                    gap="12"
+                    style={{ position: "relative", zIndex: 1 }}
+                  >
+                    <Row gap="12" vertical="center">
+                      <Column
+                        background="surface"
+                        border="accent-alpha-medium"
+                        radius="m"
+                        padding="12"
+                      >
+                        <Icon name="user" size="m" onBackground="accent-strong" />
+                      </Column>
+                      <Column gap="2">
+                        <Text variant="label-strong-s" onBackground="accent-strong">
+                          Tên nữ chính
+                        </Text>
+                        <Text variant="label-default-xs" onBackground="neutral-weak">
+                          Nhân vật trung tâm
+                        </Text>
+                      </Column>
+                    </Row>
+                    <Badge
+                      icon="sparkles"
                       border="accent-alpha-medium"
-                      radius="m"
-                      padding="12"
+                      background="surface"
+                      onBackground="accent-strong"
+                      paddingX="8"
+                      paddingY="4"
                     >
-                      <Icon name="user" size="m" onBackground="accent-strong" />
-                    </Column>
-                    <Column gap="2">
-                      <Text variant="label-strong-s" onBackground="accent-strong">
-                        Tên nữ chính
-                      </Text>
-                      <Text variant="label-default-xs" onBackground="neutral-weak">
-                        Nhân vật trung tâm
-                      </Text>
-                    </Column>
+                      <Text variant="label-default-xs">Nhân vật</Text>
+                    </Badge>
                   </Row>
                   <Input
                     id="heroine-name"
@@ -255,24 +364,59 @@ export function CreationScreen({
                   background="accent-alpha-weak"
                   radius="m"
                   padding="16"
+                  position="relative"
+                  overflow="hidden"
+                  transition="micro-medium"
                 >
-                  <Row gap="12" vertical="center">
-                    <Column
-                      background="surface"
+                  <Column
+                    position="absolute"
+                    radius="xl"
+                    background="accent-alpha-medium"
+                    style={{
+                      top: "-1.5rem",
+                      right: "-1.5rem",
+                      width: "6rem",
+                      height: "6rem",
+                      filter: "blur(24px)",
+                      opacity: 0.36,
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <Row
+                    fillWidth
+                    horizontal="between"
+                    vertical="center"
+                    gap="12"
+                    style={{ position: "relative", zIndex: 1 }}
+                  >
+                    <Row gap="12" vertical="center">
+                      <Column
+                        background="surface"
+                        border="accent-alpha-medium"
+                        radius="m"
+                        padding="12"
+                      >
+                        <Icon name="sparkles" size="m" onBackground="accent-strong" />
+                      </Column>
+                      <Column gap="2">
+                        <Text variant="label-strong-s" onBackground="accent-strong">
+                          Mẫu tính cách
+                        </Text>
+                        <Text variant="label-default-xs" onBackground="neutral-weak">
+                          Tsundere, Kuudere, Genki...
+                        </Text>
+                      </Column>
+                    </Row>
+                    <Badge
+                      icon="thunder"
                       border="accent-alpha-medium"
-                      radius="m"
-                      padding="12"
+                      background="surface"
+                      onBackground="accent-strong"
+                      paddingX="8"
+                      paddingY="4"
                     >
-                      <Icon name="sparkles" size="m" onBackground="accent-strong" />
-                    </Column>
-                    <Column gap="2">
-                      <Text variant="label-strong-s" onBackground="accent-strong">
-                        Mẫu tính cách
-                      </Text>
-                      <Text variant="label-default-xs" onBackground="neutral-weak">
-                        Tsundere, Kuudere, Genki...
-                      </Text>
-                    </Column>
+                      <Text variant="label-default-xs">Archetype</Text>
+                    </Badge>
                   </Row>
                   <Input
                     id="heroine-archetype"
@@ -305,24 +449,59 @@ export function CreationScreen({
                   background="brand-alpha-weak"
                   radius="m"
                   padding="16"
+                  position="relative"
+                  overflow="hidden"
+                  transition="micro-medium"
                 >
-                  <Row gap="12" vertical="center">
-                    <Column
-                      background="surface"
+                  <Column
+                    position="absolute"
+                    radius="xl"
+                    background="brand-alpha-medium"
+                    style={{
+                      top: "-1.5rem",
+                      right: "-1.5rem",
+                      width: "6rem",
+                      height: "6rem",
+                      filter: "blur(24px)",
+                      opacity: 0.42,
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <Row
+                    fillWidth
+                    horizontal="between"
+                    vertical="center"
+                    gap="12"
+                    style={{ position: "relative", zIndex: 1 }}
+                  >
+                    <Row gap="12" vertical="center">
+                      <Column
+                        background="surface"
+                        border="brand-alpha-medium"
+                        radius="m"
+                        padding="12"
+                      >
+                        <Icon name="heart" size="m" onBackground="brand-strong" />
+                      </Column>
+                      <Column gap="2">
+                        <Text variant="label-strong-s" onBackground="brand-strong">
+                          Khoảnh khắc gặp gỡ
+                        </Text>
+                        <Text variant="label-default-xs" onBackground="neutral-weak">
+                          Hai người gặp nhau trong tình huống nào?
+                        </Text>
+                      </Column>
+                    </Row>
+                    <Badge
+                      icon="rocket"
                       border="brand-alpha-medium"
-                      radius="m"
-                      padding="12"
+                      background="surface"
+                      onBackground="brand-strong"
+                      paddingX="8"
+                      paddingY="4"
                     >
-                      <Icon name="heart" size="m" onBackground="brand-strong" />
-                    </Column>
-                    <Column gap="2">
-                      <Text variant="label-strong-s" onBackground="brand-strong">
-                        Khoảnh khắc gặp gỡ
-                      </Text>
-                      <Text variant="label-default-xs" onBackground="neutral-weak">
-                        Hai người gặp nhau trong tình huống nào?
-                      </Text>
-                    </Column>
+                      <Text variant="label-default-xs">Cảnh mở</Text>
+                    </Badge>
                   </Row>
                   <Textarea
                     id="first-meeting"
@@ -355,78 +534,210 @@ export function CreationScreen({
             {/* Step 2: Xác nhận */}
             {currentStep === 2 && (
               <Column gap="16">
-                <Column
-                  gap="12"
-                  border="neutral-alpha-medium"
-                  background="neutral-alpha-weak"
-                  radius="m"
-                  padding="16"
-                >
-                  <Row gap="12" vertical="center">
+                <RevealFx delay={0} speed="fast">
+                  <Column
+                    gap="12"
+                    border="neutral-alpha-medium"
+                    background="neutral-alpha-weak"
+                    radius="m"
+                    padding="16"
+                    position="relative"
+                    overflow="hidden"
+                    transition="micro-medium"
+                    fillWidth
+                  >
                     <Column
-                      background="surface"
-                      border="brand-alpha-medium"
-                      radius="m"
-                      padding="12"
+                      position="absolute"
+                      radius="xl"
+                      background="brand-alpha-medium"
+                      style={{
+                        top: "-1.5rem",
+                        right: "-1.5rem",
+                        width: "6rem",
+                        height: "6rem",
+                        filter: "blur(24px)",
+                        opacity: 0.34,
+                        pointerEvents: "none",
+                      }}
+                    />
+                    <Row
+                      fillWidth
+                      gap="12"
+                      vertical="center"
+                      style={{ position: "relative", zIndex: 1 }}
                     >
-                      <Icon name="globe" size="m" onBackground="brand-strong" />
-                    </Column>
-                    <Column gap="2">
-                      <Text variant="label-strong-s" onBackground="neutral-strong">
-                        Bối cảnh
+                      <Column
+                        background="surface"
+                        border="brand-alpha-medium"
+                        radius="m"
+                        padding="12"
+                      >
+                        <Icon name="globe" size="m" onBackground="brand-strong" />
+                      </Column>
+                      <Column gap="2">
+                        <Text variant="label-strong-s" onBackground="neutral-strong">
+                          Bối cảnh
+                        </Text>
+                      </Column>
+                    </Row>
+                    <Text
+                      variant="body-default-s"
+                      onBackground="neutral-weak"
+                      style={{ position: "relative", zIndex: 1 }}
+                    >
+                      {form.worldDescription || "—"}
+                    </Text>
+                  </Column>
+                </RevealFx>
+
+                <Row fillWidth gap="12" s={{ direction: "column" }}>
+                  <RevealFx delay={0.04} speed="fast">
+                    <Column
+                      flex="1"
+                      gap="8"
+                      border="neutral-alpha-medium"
+                      background="neutral-alpha-weak"
+                      radius="m"
+                      padding="16"
+                      position="relative"
+                      overflow="hidden"
+                      transition="micro-medium"
+                    >
+                      <Column
+                        position="absolute"
+                        radius="xl"
+                        background="accent-alpha-medium"
+                        style={{
+                          top: "-1.5rem",
+                          right: "-1.5rem",
+                          width: "5.5rem",
+                          height: "5.5rem",
+                          filter: "blur(22px)",
+                          opacity: 0.3,
+                          pointerEvents: "none",
+                        }}
+                      />
+                      <Row gap="8" vertical="center" style={{ position: "relative", zIndex: 1 }}>
+                        <Column
+                          background="surface"
+                          border="accent-alpha-medium"
+                          radius="s"
+                          padding="8"
+                        >
+                          <Icon name="user" size="s" onBackground="accent-strong" />
+                        </Column>
+                        <Text variant="label-strong-s" onBackground="neutral-strong">
+                          Nữ chính
+                        </Text>
+                      </Row>
+                      <Text
+                        variant="body-default-s"
+                        onBackground="neutral-weak"
+                        style={{ position: "relative", zIndex: 1 }}
+                      >
+                        {form.heroineName || "—"}
                       </Text>
                     </Column>
-                  </Row>
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {form.worldDescription || "—"}
-                  </Text>
-                </Column>
-                <Row fillWidth gap="12" s={{ direction: "column" }}>
-                  <Column
-                    flex="1"
-                    gap="8"
-                    border="neutral-alpha-medium"
-                    background="neutral-alpha-weak"
-                    radius="m"
-                    padding="16"
-                  >
-                    <Text variant="label-strong-s" onBackground="neutral-strong">
-                      Nữ chính
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      {form.heroineName || "—"}
-                    </Text>
-                  </Column>
-                  <Column
-                    flex="1"
-                    gap="8"
-                    border="neutral-alpha-medium"
-                    background="neutral-alpha-weak"
-                    radius="m"
-                    padding="16"
-                  >
-                    <Text variant="label-strong-s" onBackground="neutral-strong">
-                      Mẫu tính cách
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak">
-                      {form.heroineArchetype || "—"}
-                    </Text>
-                  </Column>
+                  </RevealFx>
+
+                  <RevealFx delay={0.08} speed="fast">
+                    <Column
+                      flex="1"
+                      gap="8"
+                      border="neutral-alpha-medium"
+                      background="neutral-alpha-weak"
+                      radius="m"
+                      padding="16"
+                      position="relative"
+                      overflow="hidden"
+                      transition="micro-medium"
+                    >
+                      <Column
+                        position="absolute"
+                        radius="xl"
+                        background="accent-alpha-medium"
+                        style={{
+                          top: "-1.5rem",
+                          right: "-1.5rem",
+                          width: "5.5rem",
+                          height: "5.5rem",
+                          filter: "blur(22px)",
+                          opacity: 0.3,
+                          pointerEvents: "none",
+                        }}
+                      />
+                      <Row gap="8" vertical="center" style={{ position: "relative", zIndex: 1 }}>
+                        <Column
+                          background="surface"
+                          border="accent-alpha-medium"
+                          radius="s"
+                          padding="8"
+                        >
+                          <Icon name="sparkles" size="s" onBackground="accent-strong" />
+                        </Column>
+                        <Text variant="label-strong-s" onBackground="neutral-strong">
+                          Mẫu tính cách
+                        </Text>
+                      </Row>
+                      <Text
+                        variant="body-default-s"
+                        onBackground="neutral-weak"
+                        style={{ position: "relative", zIndex: 1 }}
+                      >
+                        {form.heroineArchetype || "—"}
+                      </Text>
+                    </Column>
+                  </RevealFx>
                 </Row>
-                <Column
-                  gap="12"
-                  border="neutral-alpha-medium"
-                  background="neutral-alpha-weak"
-                  radius="m"
-                  padding="16"
-                >
-                  <Text variant="label-strong-s" onBackground="neutral-strong">
-                    Khoảnh khắc gặp gỡ
-                  </Text>
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {form.firstMeeting || "—"}
-                  </Text>
-                </Column>
+
+                <RevealFx delay={0.12} speed="fast">
+                  <Column
+                    gap="12"
+                    border="neutral-alpha-medium"
+                    background="neutral-alpha-weak"
+                    radius="m"
+                    padding="16"
+                    position="relative"
+                    overflow="hidden"
+                    transition="micro-medium"
+                    fillWidth
+                  >
+                    <Column
+                      position="absolute"
+                      radius="xl"
+                      background="brand-alpha-medium"
+                      style={{
+                        top: "-1.5rem",
+                        right: "-1.5rem",
+                        width: "6rem",
+                        height: "6rem",
+                        filter: "blur(24px)",
+                        opacity: 0.34,
+                        pointerEvents: "none",
+                      }}
+                    />
+                    <Row gap="8" vertical="center" style={{ position: "relative", zIndex: 1 }}>
+                      <Column
+                        background="surface"
+                        border="brand-alpha-medium"
+                        radius="s"
+                        padding="8"
+                      >
+                        <Icon name="heart" size="s" onBackground="brand-strong" />
+                      </Column>
+                      <Text variant="label-strong-s" onBackground="neutral-strong">
+                        Khoảnh khắc gặp gỡ
+                      </Text>
+                    </Row>
+                    <Text
+                      variant="body-default-s"
+                      onBackground="neutral-weak"
+                      style={{ position: "relative", zIndex: 1 }}
+                    >
+                      {form.firstMeeting || "—"}
+                    </Text>
+                  </Column>
+                </RevealFx>
               </Column>
             )}
           </Column>

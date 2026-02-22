@@ -2,28 +2,28 @@
 const baseURL = "https://demo.once-ui.com";
 
 // Import and set font for each variant
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 
-const heading = Geist({
+const heading = Montserrat({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const body = Geist({
+const body = Montserrat({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
 
-const label = Geist({
+const label = Montserrat({
   variable: "--font-label",
   subsets: ["latin"],
   display: "swap",
 });
 
-const code = Geist_Mono({
+const code = Roboto_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
