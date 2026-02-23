@@ -20,6 +20,9 @@ import {
 
 const clampAffection = (value: number) => Math.max(0, Math.min(100, value));
 
+const TROLL_SCREEN_ENABLED =
+  process.env.NEXT_PUBLIC_TROLL_SCREEN_ENABLED === "true";
+
 const getCurrentBeat = (index: number): StoryBeat => {
   const safeIndex = Math.max(0, Math.min(index, storyBeats.length - 1));
   return storyBeats[safeIndex];
@@ -46,7 +49,7 @@ export default function Home() {
   const chapterAnimationKey = `${beat.id}-${storyIndex}`;
 
   useEffect(() => {
-    if (screen !== "story") {
+    if (screen !== "story" || !TROLL_SCREEN_ENABLED) {
       setIsStoryTrolled(false);
       return;
     }

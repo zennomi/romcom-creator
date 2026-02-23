@@ -64,7 +64,8 @@ const HEROINE_ARCHETYPE_EXAMPLES = [
   "Kuudere",
   "Genki",
   "Yandere",
-  "Lạnh lùng ngoài mặt nhưng cực kỳ tinh tế",
+  "Bạn thân thuở nhỏ",
+  "Kình địch",
 ];
 
 const FIRST_MEETING_EXAMPLES: { label: string; value: string }[] = [
@@ -403,7 +404,7 @@ export function CreationScreen({
                           Mẫu tính cách
                         </Text>
                         <Text variant="label-default-xs" onBackground="neutral-weak">
-                          Tsundere, Kuudere, Genki...
+                          Tsundere, Kuudere, Yandere...
                         </Text>
                       </Column>
                     </Row>

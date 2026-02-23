@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Avatar,
-  Column,
-  Flex,
-  IconButton,
-  Row,
-  Text,
-} from "@once-ui-system/core";
+import { Avatar, Column, Flex, IconButton, Row, Text } from "@once-ui-system/core";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AffectionBar } from "./AffectionBar";
 import { MemoryCard } from "./MemoryCard";
@@ -25,9 +18,7 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
   const isScrollingProgrammatically = useRef(false);
   const dragStartX = useRef(0);
   const scrollStartLeft = useRef(0);
-  const [scrollSnapType, setScrollSnapType] = useState<
-    "x mandatory" | "none"
-  >("x mandatory");
+  const [scrollSnapType, setScrollSnapType] = useState<"x mandatory" | "none">("x mandatory");
 
   const scrollToIndex = useCallback((index: number) => {
     const container = scrollContainerRef.current;
@@ -53,11 +44,7 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
       const scrollLeft = container.scrollLeft;
       const slideWidth = container.clientWidth;
       const newIndex = Math.round(scrollLeft / slideWidth);
-      if (
-        newIndex !== activeIndex &&
-        newIndex >= 0 &&
-        newIndex < characters.length
-      ) {
+      if (newIndex !== activeIndex && newIndex >= 0 && newIndex < characters.length) {
         setActiveIndex(newIndex);
       }
     };
@@ -73,7 +60,7 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
           }
         }
       },
-      { root: container, threshold: 0.5 }
+      { root: container, threshold: 0.5 },
     );
 
     for (const slide of slideRefs.current) {
@@ -100,9 +87,7 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
 
     const handleMouseUp = () => {
       const slideWidth = container.clientWidth;
-      const nearestIndex = Math.round(
-        container.scrollLeft / slideWidth
-      );
+      const nearestIndex = Math.round(container.scrollLeft / slideWidth);
       container.scrollTo({
         left: nearestIndex * slideWidth,
         behavior: "smooth",
@@ -132,11 +117,7 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
   if (characters.length === 0) return null;
 
   return (
-    <Column
-      fillWidth
-      fillHeight
-      style={{ isolation: "isolate", minHeight: "20rem" }}
-    >
+    <Column fillWidth fillHeight style={{ isolation: "isolate", minHeight: "20rem" }}>
       <Flex
         fillWidth
         fillHeight
@@ -198,7 +179,7 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
                   gap="12"
                   transition="micro-medium"
                 >
-                  <AffectionBar label="Độ thân thiết" value={character.affection} />
+                  <AffectionBar label="Hảo cảm" value={character.affection} />
                 </Column>
 
                 <MemoryCard
@@ -252,13 +233,7 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
       </Flex>
 
       {characters.length > 1 && (
-        <Row
-          gap="8"
-          fillWidth
-          horizontal="center"
-          paddingX="16"
-          paddingTop="12"
-        >
+        <Row gap="8" fillWidth horizontal="center" paddingX="16" paddingTop="12">
           {characters.map((character, index) => (
             <button
               key={character.id}
@@ -267,15 +242,12 @@ export function CharacterDetailSlider({ characters }: CharacterDetailSliderProps
               aria-label={`Go to ${character.name}`}
               style={{
                 background:
-                  activeIndex === index
-                    ? "var(--neutral-on-background-strong)"
-                    : "transparent",
+                  activeIndex === index ? "var(--neutral-on-background-strong)" : "transparent",
                 border:
                   activeIndex === index
                     ? "2px solid var(--neutral-on-background-strong)"
                     : "2px solid var(--neutral-alpha-medium)",
-                transition:
-                  "background 0.3s ease, transform 0.3s ease, border 0.3s ease",
+                transition: "background 0.3s ease, transform 0.3s ease, border 0.3s ease",
                 transform: activeIndex === index ? "scale(1.1)" : "scale(1)",
                 overflow: "hidden",
                 borderRadius: "50%",

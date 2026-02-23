@@ -16,10 +16,11 @@ import {
 import type { TemplateOption } from "./types";
 import titleImage from "../../assets/title.png";
 
-const TEMPLATE_ICONS: Record<string, "academicCap" | "sparkles" | "building"> = {
+const TEMPLATE_ICONS: Record<string, "academicCap" | "sparkles" | "building" | "moon"> = {
   "hoc-duong-thanh-xuan": "academicCap",
   "isekai-romcom": "sparkles",
   "drama-cong-so": "building",
+  "dark-romcom": "moon",
 };
 
 interface LandingScreenProps {
@@ -114,7 +115,7 @@ export function LandingScreen({
           </Text>
         </Column>
 
-        <Grid columns={1} m={{ columns: 2 }} l={{ columns: 3 }} gap="16" fillWidth>
+        <Grid columns={1} m={{ columns: 2 }} l={{ columns: 2 }} gap="16" fillWidth>
           {templates.map((template, index) => {
             const cardBg =
               index % 3 === 0

@@ -137,10 +137,18 @@ export function StoryScreen({
                   <Text variant="heading-strong-s">Tạm dừng viết romcom đi bro.</Text>
                 </Row>
                 <Text variant="body-default-m" onBackground="neutral-weak">
-                  Đi ra ngoài, chạm cỏ, hít thở không khí thật và thử tìm người yêu ngoài đời trước đã.
+                  Đi ra ngoài, chạm cỏ, hít thở không khí thật và thử tìm người yêu ngoài đời trước
+                  đã.
                 </Text>
                 <Text variant="body-default-m" onBackground="neutral-weak">
-                  Thay vì ngồi đây tối ưu prompt để nhân vật ảo rung động hộ mình, bạn có thể bắt đầu từ những việc đơn giản hơn nhiều: ngủ đúng giờ để mặt đỡ như zombie, tập thể dục nhẹ để tự tin hơn, chọn quần áo gọn gàng, học cách lắng nghe khi nói chuyện, hỏi han người ta bằng sự tò mò thật lòng chứ không phải checklist, và dám rủ một buổi cà phê ngắn thay vì chờ "đúng thời điểm". Tình cảm ngoài đời không có thanh năng lượng hay lựa chọn preset, nhưng bù lại mỗi cuộc trò chuyện thật đều cho bạn điểm kinh nghiệm mà không game nào thay được. Nên đóng tab này lại, nhắn một tin tử tế cho người bạn thích, rồi đi sống một chương truyện thật của chính mình.
+                  Thay vì ngồi đây tối ưu prompt để nhân vật ảo rung động hộ mình, bạn có thể bắt
+                  đầu từ những việc đơn giản hơn nhiều: ngủ đúng giờ để mặt đỡ như zombie, tập thể
+                  dục nhẹ để tự tin hơn, chọn quần áo gọn gàng, học cách lắng nghe khi nói chuyện,
+                  hỏi han người ta bằng sự tò mò thật lòng chứ không phải checklist, và dám rủ một
+                  buổi cà phê ngắn thay vì chờ "đúng thời điểm". Tình cảm ngoài đời không có thanh
+                  năng lượng hay lựa chọn preset, nhưng bù lại mỗi cuộc trò chuyện thật đều cho bạn
+                  điểm kinh nghiệm mà không game nào thay được. Nên đóng tab này lại, nhắn một tin
+                  tử tế cho người bạn thích, rồi đi sống một chương truyện thật của chính mình.
                 </Text>
               </Column>
             </RevealFx>

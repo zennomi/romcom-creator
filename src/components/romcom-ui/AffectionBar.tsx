@@ -53,16 +53,23 @@ export function AffectionBar({ label, value }: AffectionBarProps) {
 
   return (
     <Column fillWidth gap="8">
-      <Row fillWidth horizontal="between" vertical="center" gap="8">
+      <Row fillWidth vertical="center" gap="8">
         <Row gap={6} vertical="center">
-          <Icon name={tone.icon} size="s" onBackground={tone.badgeOnBackground as "danger-strong" | "info-strong" | "accent-strong"} />
+          <Icon
+            name={tone.icon}
+            size="s"
+            onBackground={
+              tone.badgeOnBackground as "danger-strong" | "info-strong" | "accent-strong"
+            }
+          />
+        </Row>
+        <Row fillWidth horizontal="center" style={{ flex: 1, minWidth: 0 }}>
           <Text variant="label-strong-m">{label}</Text>
         </Row>
         <Text variant="label-default-m" onBackground="neutral-weak">
           {level}%
         </Text>
       </Row>
-
       <Column
         fillWidth
         border="neutral-alpha-medium"
@@ -92,7 +99,11 @@ export function AffectionBar({ label, value }: AffectionBarProps) {
         gap={6}
         vertical="center"
       >
-        <Icon name={tone.icon} size="xs" onBackground={tone.badgeOnBackground as "danger-strong" | "info-strong" | "accent-strong"} />
+        <Icon
+          name={tone.icon}
+          size="xs"
+          onBackground={tone.badgeOnBackground as "danger-strong" | "info-strong" | "accent-strong"}
+        />
         <Text variant="label-default-xs">{tone.name}</Text>
       </Row>
     </Column>
