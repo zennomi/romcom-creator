@@ -1,5 +1,5 @@
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.once-ui.com";
+const baseURL = "https://romcom-creator.vercel.app";
 
 // Import and set font for each variant
 import { Montserrat } from "next/font/google";
@@ -68,13 +68,13 @@ const dataStyle = {
 const meta = {
   home: {
     path: "/",
-    title: "Once UI for Next.js",
+    title: "RomCom Creator - Tạo visual novel romcom tương tác",
     description:
-      "An open-source design system and component library for Next.js that emphasizes easy styling and accessibility in UI development.",
+      "Tạo thế giới romcom, thiết kế nữ chính và điều hướng câu chuyện bằng lựa chọn tương tác trong RomCom Creator.",
     image: "/images/og/home.jpg",
-    canonical: "https://once-ui.com",
+    canonical: "https://romcom-creator.vercel.app/",
     robots: "index,follow",
-    alternates: [{ href: "https://once-ui.com", hrefLang: "en" }],
+    alternates: [{ href: "https://romcom-creator.vercel.app/", hrefLang: "vi" }],
   },
   // add more routes and reference them in page.tsx
 };
@@ -83,9 +83,9 @@ const meta = {
 const schema = {
   logo: "",
   type: "Organization",
-  name: "Once UI",
+  name: "RomCom Creator",
   description: meta.home.description,
-  email: "lorant@once-ui.com",
+  email: "",
 };
 
 // social links
