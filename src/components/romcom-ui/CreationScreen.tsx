@@ -106,10 +106,17 @@ export function CreationScreen({
   const secondaryGlowTone = currentStep === 2 ? "brand-alpha-medium" : "accent-alpha-medium";
 
   return (
-    <Column fillWidth gap="24">
+    <Column fillWidth gap="24" style={{ gap: "clamp(1rem, 3.2vw, 1.5rem)" }}>
       <RevealFx delay={0} speed="fast">
         <Column gap="12">
-          <Row fillWidth horizontal="between" vertical="center" gap="12" wrap>
+          <Row
+            fillWidth
+            horizontal="between"
+            vertical="center"
+            gap="12"
+            wrap
+            s={{ direction: "column", horizontal: "start", vertical: "start" }}
+          >
             <Heading variant="heading-strong-l">Tạo thế giới romcom</Heading>
             <Badge
               icon="sparkles"
@@ -146,6 +153,7 @@ export function CreationScreen({
           padding="24"
           transition="micro-medium"
           shadow="s"
+          style={{ gap: "clamp(1rem, 3.2vw, 1.5rem)", padding: "clamp(1rem, 3.6vw, 1.5rem)" }}
         >
           <Column
             position="absolute"
@@ -177,7 +185,14 @@ export function CreationScreen({
               transition: "all 280ms ease",
             }}
           />
-          <Column gap="20" style={{ position: "relative", zIndex: 1 }}>
+          <Column
+            gap="20"
+            style={{
+              position: "relative",
+              zIndex: 1,
+              gap: "clamp(1rem, 3.2vw, 1.25rem)",
+            }}
+          >
             {/* Step 0: Bối cảnh */}
             {currentStep === 0 && (
               <Column gap="16">
@@ -190,7 +205,11 @@ export function CreationScreen({
                   position="relative"
                   overflow="hidden"
                   transition="micro-medium"
-                  style={{ transform: "translateY(-0.08rem)" }}
+                  style={{
+                    transform: "translateY(-0.08rem)",
+                    padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                    gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                  }}
                 >
                   <Column
                     position="absolute"
@@ -212,6 +231,7 @@ export function CreationScreen({
                     vertical="center"
                     gap="12"
                     style={{ position: "relative", zIndex: 1 }}
+                    s={{ direction: "column", horizontal: "start", vertical: "start" }}
                   >
                     <Row gap="12" vertical="center">
                       <Column
@@ -282,7 +302,11 @@ export function CreationScreen({
                   position="relative"
                   overflow="hidden"
                   transition="micro-medium"
-                  style={{ transform: "translateY(-0.08rem)" }}
+                  style={{
+                    transform: "translateY(-0.08rem)",
+                    padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                    gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                  }}
                 >
                   <Column
                     position="absolute"
@@ -304,6 +328,7 @@ export function CreationScreen({
                     vertical="center"
                     gap="12"
                     style={{ position: "relative", zIndex: 1 }}
+                    s={{ direction: "column", horizontal: "start", vertical: "start" }}
                   >
                     <Row gap="12" vertical="center">
                       <Column
@@ -368,6 +393,10 @@ export function CreationScreen({
                   position="relative"
                   overflow="hidden"
                   transition="micro-medium"
+                  style={{
+                    padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                    gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                  }}
                 >
                   <Column
                     position="absolute"
@@ -389,6 +418,7 @@ export function CreationScreen({
                     vertical="center"
                     gap="12"
                     style={{ position: "relative", zIndex: 1 }}
+                    s={{ direction: "column", horizontal: "start", vertical: "start" }}
                   >
                     <Row gap="12" vertical="center">
                       <Column
@@ -453,6 +483,10 @@ export function CreationScreen({
                   position="relative"
                   overflow="hidden"
                   transition="micro-medium"
+                  style={{
+                    padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                    gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                  }}
                 >
                   <Column
                     position="absolute"
@@ -474,6 +508,7 @@ export function CreationScreen({
                     vertical="center"
                     gap="12"
                     style={{ position: "relative", zIndex: 1 }}
+                    s={{ direction: "column", horizontal: "start", vertical: "start" }}
                   >
                     <Row gap="12" vertical="center">
                       <Column
@@ -546,6 +581,10 @@ export function CreationScreen({
                     overflow="hidden"
                     transition="micro-medium"
                     fillWidth
+                    style={{
+                      padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                      gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                    }}
                   >
                     <Column
                       position="absolute"
@@ -603,6 +642,10 @@ export function CreationScreen({
                       position="relative"
                       overflow="hidden"
                       transition="micro-medium"
+                      style={{
+                        padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                        gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                      }}
                     >
                       <Column
                         position="absolute"
@@ -652,6 +695,10 @@ export function CreationScreen({
                       position="relative"
                       overflow="hidden"
                       transition="micro-medium"
+                      style={{
+                        padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                        gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                      }}
                     >
                       <Column
                         position="absolute"
@@ -702,6 +749,10 @@ export function CreationScreen({
                     overflow="hidden"
                     transition="micro-medium"
                     fillWidth
+                    style={{
+                      padding: "clamp(0.75rem, 3.2vw, 1rem)",
+                      gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+                    }}
                   >
                     <Column
                       position="absolute"

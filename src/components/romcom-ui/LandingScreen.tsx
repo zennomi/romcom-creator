@@ -78,7 +78,7 @@ export function LandingScreen({
       </Row>
 
       <GlitchFx fillWidth speed="medium">
-        <Column gap="12" fillWidth horizontal="center" marginTop={-5}>
+        <Column gap="12" fillWidth horizontal="center" className="landing-title-column">
           <Row fillWidth center>
             <Media
               src={titleImage.src}
@@ -101,11 +101,12 @@ export function LandingScreen({
         gap="20"
         vertical="center"
         horizontal="between"
-        s={{ direction: "column" }}
+        s={{ direction: "column", horizontal: "stretch" }}
         transition="micro-medium"
         shadow="s"
+        style={{ padding: "clamp(1rem, 3.6vw, 1.25rem)", gap: "clamp(0.75rem, 3vw, 1.25rem)" }}
       >
-        <Row gap="16" vertical="center">
+        <Row gap="16" vertical="center" s={{ direction: "column", horizontal: "start" }}>
           <Column background="brand-alpha-weak" border="brand-alpha-medium" radius="m" padding="12">
             <Icon name="rocket" size="l" onBackground="brand-strong" />
           </Column>
@@ -117,9 +118,11 @@ export function LandingScreen({
           </Column>
         </Row>
 
-        <Button variant="primary" size="m" prefixIcon="rocket" onClick={onQuickStart}>
-          Bắt đầu nhanh
-        </Button>
+        <Column>
+          <Button variant="primary" size="m" prefixIcon="rocket" onClick={onQuickStart} fillWidth>
+            Bắt đầu nhanh
+          </Button>
+        </Column>
       </Row>
 
       <Column gap="16">
@@ -130,7 +133,14 @@ export function LandingScreen({
           </Text>
         </Column>
 
-        <Grid columns={1} m={{ columns: 2 }} l={{ columns: 2 }} gap="16" fillWidth>
+        <Grid
+          columns={1}
+          s={{ columns: 1 }}
+          m={{ columns: 2 }}
+          l={{ columns: 2 }}
+          gap="16"
+          fillWidth
+        >
           {templates.map((template, index) => {
             const cardBg =
               index % 3 === 0

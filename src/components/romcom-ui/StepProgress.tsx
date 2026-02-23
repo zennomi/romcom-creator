@@ -36,7 +36,14 @@ export function StepProgress({ steps, currentStep }: StepProgressProps) {
 
   return (
     <Column fillWidth gap="12">
-      <Row fillWidth horizontal="between" vertical="center" gap="8" wrap>
+      <Row
+        fillWidth
+        horizontal="between"
+        vertical="center"
+        gap="8"
+        wrap
+        s={{ direction: "column", horizontal: "start", vertical: "start" }}
+      >
         <Row gap="8" vertical="center">
           <Icon name="sparkles" size="s" onBackground="brand-strong" />
           <Text variant="label-default-s" onBackground="neutral-weak">

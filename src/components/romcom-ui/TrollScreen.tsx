@@ -73,7 +73,11 @@ export function TrollScreen({ onExit }: TrollScreenProps) {
       padding="24"
       gap="24"
       shadow="l"
-      style={{ minHeight: "28rem" }}
+      style={{
+        minHeight: "clamp(18rem, 72vw, 28rem)",
+        padding: "clamp(1rem, 3.6vw, 1.5rem)",
+        gap: "clamp(1rem, 3.2vw, 1.5rem)",
+      }}
     >
       <Column
         position="absolute"
@@ -141,6 +145,10 @@ export function TrollScreen({ onExit }: TrollScreenProps) {
               padding="20"
               gap="12"
               shadow="s"
+              style={{
+                padding: "clamp(1rem, 3.4vw, 1.25rem)",
+                gap: "clamp(0.625rem, 2.8vw, 0.75rem)",
+              }}
             >
               <Heading variant="heading-strong-l">Chạm cỏ đi bạn ơi...</Heading>
               <Text variant="body-default-m" onBackground="neutral-medium">
@@ -157,10 +165,17 @@ export function TrollScreen({ onExit }: TrollScreenProps) {
               ))}
             </Column>
 
-            <Row fillWidth horizontal="between">
-              <Button variant="primary" size="m" prefixIcon="arrowLeft" onClick={onExit}>
-                Về màn chính
-              </Button>
+            <Row
+              fillWidth
+              horizontal="between"
+              gap="12"
+              s={{ direction: "column", horizontal: "start", vertical: "stretch" }}
+            >
+              <Column fillWidth>
+                <Button variant="primary" size="m" prefixIcon="arrowLeft" onClick={onExit} fillWidth>
+                  Về màn chính
+                </Button>
+              </Column>
 
               <Badge
                 icon="dangerCircle"

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Background,
   Badge,
@@ -46,10 +47,38 @@ export function StoryScreen({
   onCustomActionChange,
   onSubmitCustomAction,
 }: StoryScreenProps) {
+  const [isMobileLayout, setIsMobileLayout] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const update = (event: MediaQueryListEvent | MediaQueryList) => {
+      setIsMobileLayout(event.matches);
+    };
+
+    update(mediaQuery);
+
+    const handler = (event: MediaQueryListEvent) => update(event);
+
+    mediaQuery.addEventListener("change", handler);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handler);
+    };
+  }, []);
+
   return (
-    <Column fillWidth gap="20">
-      <Row fillWidth horizontal="between" vertical="center" gap="12" wrap>
-        <Row gap="8" vertical="center">
+    <Column fillWidth gap="20" style={{ gap: "clamp(1rem, 3.2vw, 1.25rem)" }}>
+      <Row
+        fillWidth
+        horizontal="between"
+        vertical="center"
+        gap="12"
+        wrap
+        style={{ gap: "clamp(0.5rem, 2.2vw, 0.75rem)" }}
+        s={{ direction: "column", horizontal: "start", vertical: "start" }}
+      >
+        <Row fillWidth gap="8" vertical="center">
           <Badge
             icon="sparkles"
             border="brand-alpha-medium"
@@ -66,7 +95,12 @@ export function StoryScreen({
           </Badge>
         </Row>
 
-        <Row gap="8" vertical="center">
+        <Row
+          fillWidth
+          gap="8"
+          vertical="center"
+          s={{ direction: "column", horizontal: "start", vertical: "start" }}
+        >
           <HeartbeatCounter value={heartbeat} />
           <Badge
             icon="thunder"
@@ -102,6 +136,8 @@ export function StoryScreen({
             opacity: isProcessing ? 0.75 : 1,
             transition: "opacity 260ms ease",
             minHeight: "20rem",
+            padding: "clamp(1rem, 3.6vw, 1.25rem)",
+            gap: "clamp(1rem, 3.2vw, 1.25rem)",
           }}
         >
           <Background
@@ -238,13 +274,21 @@ export function StoryScreen({
           gap="16"
           position="sticky"
           top="16"
-          s={{ hide: !isAffectionPanelOpen }}
+          s={{ hide: !isAffectionPanelOpen, position: "relative" }}
           border="neutral-alpha-medium"
           background="surface"
           radius="l"
           padding="16"
           transition="micro-medium"
-          style={{ maxHeight: "calc(100dvh - 8rem)", overflowY: "auto" }}
+          style={{
+            maxHeight: isMobileLayout
+              ? "none"
+              : "min(clamp(16rem, 70vw, 28rem), calc(100dvh - clamp(2rem, 8vw, 8rem)))",
+            overflowY: isMobileLayout ? "visible" : "auto",
+            top: isMobileLayout ? "0" : "clamp(0px, 2vw, 1rem)",
+            padding: "clamp(0.75rem, 2.8vw, 1rem)",
+            gap: "clamp(0.75rem, 2.8vw, 1rem)",
+          }}
         >
           <RevealFx delay={0.05} speed="fast" trigger={isAffectionPanelOpen}>
             <Column fillWidth gap="16">

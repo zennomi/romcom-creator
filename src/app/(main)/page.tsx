@@ -152,16 +152,29 @@ export default function Home() {
   };
 
   return (
-    <Column fillWidth center paddingX="l" paddingY="32" style={{ minHeight: "100dvh" }}>
+    <Column
+      fillWidth
+      center
+      style={{
+        minHeight: "100dvh",
+        paddingLeft: "clamp(1rem, 4vw, 2.5rem)",
+        paddingRight: "clamp(1rem, 4vw, 2.5rem)",
+        paddingTop: "clamp(1.25rem, 4vw, 2rem)",
+        paddingBottom: "clamp(1.25rem, 4vw, 2rem)",
+      }}
+    >
       <Column
         fillWidth
         maxWidth="xl"
         border="neutral-alpha-medium"
         background="surface"
         radius="xl"
-        padding="32"
-        gap="32"
         shadow="l"
+        style={{
+          padding: "clamp(1.25rem, 4vw, 2rem)",
+          gap: "clamp(1.25rem, 4vw, 2rem)",
+          borderRadius: "clamp(1rem, 3.2vw, 1.5rem)",
+        }}
       >
         {screen === "landing" && (
           <LandingScreen
@@ -233,11 +246,12 @@ export default function Home() {
         style={{
           top: 0,
           right: 0,
-          width: "40%",
-          height: "50%",
+          width: "clamp(28%, 35vw, 40%)",
+          height: "clamp(32%, 42vw, 50%)",
           background:
             "radial-gradient(ellipse at top right, var(--once-brand-alpha-weak, rgba(99 102 241 / 0.15)) 0%, transparent 70%)",
           pointerEvents: "none",
+          opacity: "clamp(0.5, 2vw, 0.9)",
         }}
       />
       {/* Corner glow - accent bottom-left */}
@@ -246,11 +260,12 @@ export default function Home() {
         style={{
           bottom: 0,
           left: 0,
-          width: "35%",
-          height: "45%",
+          width: "clamp(24%, 31vw, 35%)",
+          height: "clamp(30%, 39vw, 45%)",
           background:
             "radial-gradient(ellipse at bottom left, var(--once-accent-alpha-weak, rgba(236 72 153 / 0.12)) 0%, transparent 70%)",
           pointerEvents: "none",
+          opacity: "clamp(0.45, 2vw, 0.85)",
         }}
       />
     </Column>
